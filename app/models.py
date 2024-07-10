@@ -11,3 +11,8 @@ class Movie(db.Model):
 
     def __repr__(self):
         return f"<Movie {self.title}>"
+    
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        db.session.add(self)
+        db.session.commit()
